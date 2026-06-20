@@ -6,7 +6,7 @@
 From this repo:
 
 ```bash
-hermes profile install github.com/<owner>/agent-foundry --name agent-foundry-test -y
+hermes profile install github.com/<owner>/hermes-agent-foundry --name agent-foundry-test -y
 # or install from a local clone:
 # hermes profile install /path/to/agent-foundry --name agent-foundry-test -y
 hermes profile info agent-foundry-test
