@@ -1,0 +1,25 @@
+name: Validate Agent Foundry
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml==6.0.2
+      - run: python scripts/validate_distribution.py --mode source
+      - run: python scripts/validate_fixture_contracts.py
+      - run: python scripts/validate_distribution.py --mode kit --root templates/build-kit
+      - run: python scripts/validate_distribution.py --mode kit --root fixtures/generated-kits/meeting-action-checklist
+      - run: python scripts/smoke_profile_replay.py
+      - name: Optional installed-profile smoke replay
+        if: ${{ env.AGENT_FOUNDRY_PROFILE_ROOT != '' }}
+        run: python scripts/smoke_profile_replay.py --profile-root "$AGENT_FOUNDRY_PROFILE_ROOT"
+      - run: PYTHONPYCACHEPREFIX=/tmp/agent-foundry-pycache python -m py_compile scripts/validate_distribution.py scripts/validate_fixture_contracts.py scripts/smoke_profile_replay.py

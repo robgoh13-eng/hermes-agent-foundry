@@ -1,0 +1,36 @@
+# Runtime/user data - never commit
+.env
+.env.*
+!.env.EXAMPLE
+auth.json
+memories/
+sessions/
+logs/
+state.db*
+hermes_state.db
+response_store.db*
+*_cache/
+cache/
+local/
+workspace/
+profiles/
+backups/
+.worktrees/
+checkpoints/
+sandboxes/
+*.pid
+*.lock
+
+# Source-repo-only private implementation notes
+# Keep local Workspace/private checkout details out of commits and distributions.
+docs/internal/
+
+# Build/editor/system
+node_modules/
+dist/
+build/
+__pycache__/
+*.py[cod]
+.DS_Store
+.vscode/
+.idea/

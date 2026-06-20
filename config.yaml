@@ -1,0 +1,11 @@
+# Agent Foundry distribution config.
+# The pinned provider/model below is a known test-runtime default, not a
+# portability guarantee. Override it after install / in a fork for the target
+# Hermes environment when needed.
+model:
+  default: gpt-5.5
+  provider: openai-codex
+agent:
+  max_turns: 90
+terminal:
+  cwd: "~"

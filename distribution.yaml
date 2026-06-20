@@ -1,0 +1,27 @@
+name: agent-foundry
+version: 0.1.0
+description: "ICM-native Hermes agent that designs reviewed build kits and patch kits for specialist agents."
+hermes_requires: ">=0.12.0"
+author: "Agent Foundry contributors"
+license: "MIT"
+env_requires: []
+distribution_owned:
+  - SOUL.md
+  - skills/agent-foundry-core/
+  - templates/
+  - docs/SPEC.md
+  - docs/DECISIONS.md
+  - docs/SAFETY.md
+  - docs/VALIDATION.md
+  - docs/ROADMAP.md
+  - docs/USAGE.md
+  - scripts/
+  - distribution.yaml
+  - LICENSE
+  - README.md
+distribution_excluded:
+  - docs/internal/
+  - fixtures/
+notes:
+  - "docs/internal/ is source-repo-only implementation history and is not portable distribution content."
+  - "fixtures/ are CI/source validation contracts, not installed-profile runtime data."
